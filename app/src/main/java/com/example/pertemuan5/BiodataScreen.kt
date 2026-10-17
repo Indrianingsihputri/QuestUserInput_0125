@@ -124,7 +124,6 @@ fun BiodataScreen() {
                         shape = RoundedCornerShape(12.dp)
                     )
                 }
-
             }
         }
     }
