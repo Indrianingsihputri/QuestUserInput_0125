@@ -16,13 +16,10 @@ import com.example.pertemuan5.ui.theme.Pertemuan5Theme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         setContent {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    FormDataDiri(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+            Pertemuan5Theme {
+                BiodataScreen()
             }
         }
     }
