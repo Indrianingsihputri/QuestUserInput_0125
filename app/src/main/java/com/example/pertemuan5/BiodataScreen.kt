@@ -222,6 +222,13 @@ fun BiodataScreen() {
                                     maxLines = 1
                                 )
                             }
+
+                            DropdownMenu(
+                                expanded = expanded,
+                                onDismissRequest = {
+                                    expanded = false
+                                }
+                            ) {}
                         }
                     }
                 }
