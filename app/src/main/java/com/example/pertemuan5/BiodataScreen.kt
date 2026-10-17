@@ -228,7 +228,17 @@ fun BiodataScreen() {
                                 onDismissRequest = {
                                     expanded = false
                                 }
-                            ) {}
+                            ) {
+                                experienceOptions.forEach { option ->
+                                    DropdownMenuItem(
+                                        text = { Text(option) },
+                                        onClick = {
+                                            experience = option
+                                            expanded = false
+                                        }
+                                    )
+                                }
+                            }
                         }
                     }
                 }
