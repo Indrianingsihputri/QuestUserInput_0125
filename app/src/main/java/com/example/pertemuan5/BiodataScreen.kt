@@ -58,5 +58,17 @@ fun BiodataScreen() {
                 .padding(innerPadding)
                 // Mengaktifkan scroll jika konten melebihi layar
                 .verticalScroll(rememberScrollState())
+        ){
+            // Header image
+            Image(
+                painter = painterResource(R.drawable.bg_spider),
+                contentDescription = stringResource(R.string.header_image),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(190.dp),
+                contentScale = androidx.compose.ui.layout.ContentScale.Crop
+            )
+
+        }
     }
 }
