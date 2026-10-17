@@ -79,7 +79,14 @@ fun BiodataScreen() {
                     .background(Color.White)
                     .padding(18.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
-            )
+            ) {
+                Text(
+                    text = stringResource(R.string.form_title),
+                    fontSize = 23.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = colorResource(R.color.purple_primary)
+                )
+            }
         }
     }
 }
