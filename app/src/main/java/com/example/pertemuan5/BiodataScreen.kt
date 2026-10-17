@@ -1,11 +1,31 @@
 package com.example.pertemuan5
 
-import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import android.app.DatePickerDialog
+import android.widget.DatePicker
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringArrayResource
+import java.util.Calendar
 
 @Composable
 fun BiodataScreen() {
@@ -26,5 +46,13 @@ fun BiodataScreen() {
     val experienceOptions =
         stringArrayResource(R.array.experience_options)
 
-    Scaffold () { }
+    Scaffold (
+        containerColor = colorResource(R.color.background)
+    ) { innerPadding ->
+
+        // Menyusun konten secara vertikal
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+    }
 }
