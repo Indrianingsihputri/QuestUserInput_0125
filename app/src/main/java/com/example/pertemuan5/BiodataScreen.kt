@@ -143,6 +143,67 @@ fun BiodataScreen() {
                 )
 
                 Spacer(modifier = Modifier.height(12.dp))
+
+                // Birth date and experience
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ){
+                    OutlinedButton(
+                        onClick = {
+                            DatePickerDialog(
+                                context,
+                                { _: DatePicker, year: Int,
+                                  month: Int, day: Int ->
+                                    birthDate = String.format(
+                                        "%02d/%02d/%04d",
+                                        day, month + 1, year
+                                    )
+                                },
+                                calendar.get(Calendar.YEAR),
+                                calendar.get(Calendar.MONTH),
+                                calendar.get(Calendar.DAY_OF_MONTH)
+                            ).show()
+                        },
+                        modifier = Modifier.weight(1f),
+                        shape = RoundedCornerShape(12.dp),
+                        contentPadding = PaddingValues(
+                            horizontal = 8.dp,
+                            vertical = 14.dp
+                        )
+                    ) {
+                        Text(
+                            text = if (birthDate.isEmpty()) {
+                                stringResource(R.string.birth_date)
+                            } else {
+                                birthDate
+                            },
+                            maxLines = 1
+                        )
+                    }
+
+                    Box(modifier = Modifier.weight(1f)) {
+                        OutlinedButton(
+                            onClick = { expanded = true },
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(12.dp),
+                            contentPadding = PaddingValues(
+                                horizontal = 8.dp,
+                                vertical = 14.dp
+                            )
+                        ) {
+                            Text(
+                                text = if (experience.isEmpty()) {
+                                    stringResource(R.string.experience)
+                                } else {
+                                    experience
+                                },
+                                maxLines = 1
+                            )
+                        }
+                    }
+                }
             }
         }
     }
