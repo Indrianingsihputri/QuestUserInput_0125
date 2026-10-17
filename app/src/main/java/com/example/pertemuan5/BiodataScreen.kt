@@ -1,5 +1,6 @@
 package com.example.pertemuan5
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.util.Patterns
 import android.widget.DatePicker
@@ -27,7 +28,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.platform.LocalContext
 import java.util.Calendar
+import java.util.Locale
 
+@SuppressLint("LocalContextGetResourceValueCall")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BiodataScreen() {
@@ -36,11 +39,11 @@ fun BiodataScreen() {
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
-    var birthDate by remember { mutableStateOf("") }
+    var birthdate by remember { mutableStateOf("") }
     var experience by remember { mutableStateOf("") }
 
     var androidSkill by remember { mutableStateOf(false) }
-    var uiuxSkill by remember { mutableStateOf(false) }
+    var uiUxSkill by remember { mutableStateOf(false) }
     var webSkill by remember { mutableStateOf(false) }
 
     var expanded by remember { mutableStateOf(false) }
@@ -66,7 +69,7 @@ fun BiodataScreen() {
         ) {
             // Header image
             Image(
-                painter = painterResource(R.drawable.bg_spider),
+                painter = painterResource(R.drawable.langit),
                 contentDescription = stringResource(R.string.header_image),
                 modifier = Modifier
                     .fillMaxWidth()
@@ -162,7 +165,8 @@ fun BiodataScreen() {
                                 context,
                                 { _: DatePicker, year: Int,
                                   month: Int, day: Int ->
-                                    birthDate = String.format(
+                                    birthdate = String.format(
+                                        Locale.US,
                                         "%02d/%02d/%04d",
                                         day, month + 1, year
                                     )
@@ -180,10 +184,8 @@ fun BiodataScreen() {
                         )
                     ) {
                         Text(
-                            text = if (birthDate.isEmpty()) {
+                            text = birthdate.ifEmpty {
                                 stringResource(R.string.birth_date)
-                            } else {
-                                birthDate
                             },
                             maxLines = 1
                         )
@@ -200,10 +202,8 @@ fun BiodataScreen() {
                             )
                         ) {
                             Text(
-                                text = if (experience.isEmpty()) {
+                                text = experience.ifEmpty {
                                     stringResource(R.string.experience)
-                                } else {
-                                    experience
                                 },
                                 maxLines = 1
                             )
@@ -255,8 +255,8 @@ fun BiodataScreen() {
 
                     SkillCheckbox(
                         label = stringResource(R.string.skill_uiux),
-                        checked = uiuxSkill,
-                        onCheckedChange = { uiuxSkill = it }
+                        checked = uiUxSkill,
+                        onCheckedChange = { uiUxSkill = it }
                     )
 
                     SkillCheckbox(
@@ -275,7 +275,7 @@ fun BiodataScreen() {
                             firstName.isBlank() ||
                                     lastName.isBlank() ||
                                     email.isBlank() ||
-                                    birthDate.isBlank() ||
+                                    birthdate.isBlank() ||
                                     experience.isBlank() -> {
                                 context.getString(R.string.error_required)
                             }
@@ -286,7 +286,7 @@ fun BiodataScreen() {
                             }
 
                             !androidSkill &&
-                                    !uiuxSkill &&
+                                    !uiUxSkill &&
                                     !webSkill -> {
                                 context.getString(R.string.error_skill)
                             }
