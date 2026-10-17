@@ -244,6 +244,14 @@ fun BiodataScreen() {
 
                     Spacer(modifier = Modifier.height(18.dp))
 
+                    // Skills title
+                    Text(
+                        text = stringResource(R.string.skills_title),
+                        modifier = Modifier.fillMaxWidth(),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 13.sp,
+                        color = colorResource(R.color.text_primary)
+                    )
                 }
             }
         }
