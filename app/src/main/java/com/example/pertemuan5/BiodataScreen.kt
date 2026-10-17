@@ -69,6 +69,17 @@ fun BiodataScreen() {
                 contentScale = androidx.compose.ui.layout.ContentScale.Crop
             )
 
+            // Biodata card
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
+                    .offset(y = (-12).dp)
+                    .clip(RoundedCornerShape(24.dp))
+                    .background(Color.White)
+                    .padding(18.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            )
         }
     }
 }
