@@ -86,6 +86,15 @@ fun BiodataScreen() {
                     fontWeight = FontWeight.Bold,
                     color = colorResource(R.color.purple_primary)
                 )
+
+                Spacer(modifier = Modifier.height(6.dp))
+
+                Text(
+                    text = stringResource(R.string.form_description),
+                    fontSize = 11.sp,
+                    color = colorResource(R.color.text_secondary),
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }
