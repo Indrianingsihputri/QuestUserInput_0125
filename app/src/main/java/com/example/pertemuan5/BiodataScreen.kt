@@ -95,6 +95,9 @@ fun BiodataScreen() {
                     color = colorResource(R.color.text_secondary),
                     textAlign = TextAlign.Center
                 )
+
+                Spacer(modifier = Modifier.height(22.dp))
+
             }
         }
     }
