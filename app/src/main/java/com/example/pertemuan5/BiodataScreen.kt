@@ -202,6 +202,27 @@ fun BiodataScreen() {
                                 maxLines = 1
                             )
                         }
+
+                        Box(modifier = Modifier.weight(1f)) {
+                            OutlinedButton(
+                                onClick = { expanded = true },
+                                modifier = Modifier.fillMaxWidth(),
+                                shape = RoundedCornerShape(12.dp),
+                                contentPadding = PaddingValues(
+                                    horizontal = 8.dp,
+                                    vertical = 14.dp
+                                )
+                            ) {
+                                Text(
+                                    text = if (experience.isEmpty()) {
+                                        stringResource(R.string.experience)
+                                    } else {
+                                        experience
+                                    },
+                                    maxLines = 1
+                                )
+                            }
+                        }
                     }
                 }
             }
