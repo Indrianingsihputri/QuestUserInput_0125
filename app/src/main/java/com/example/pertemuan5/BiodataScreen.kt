@@ -1,5 +1,6 @@
 package com.example.pertemuan5
 
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,4 +25,6 @@ fun BiodataScreen() {
 
     val experienceOptions =
         stringArrayResource(R.array.experience_options)
+
+    Scaffold () { }
 }
