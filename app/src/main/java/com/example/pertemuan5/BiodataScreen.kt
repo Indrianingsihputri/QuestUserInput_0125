@@ -54,5 +54,9 @@ fun BiodataScreen() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                // Memberi ruang sesuai padding dari Scaffold
+                .padding(innerPadding)
+                // Mengaktifkan scroll jika konten melebihi layar
+                .verticalScroll(rememberScrollState())
     }
 }
