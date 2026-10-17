@@ -241,6 +241,9 @@ fun BiodataScreen() {
                             }
                         }
                     }
+
+                    Spacer(modifier = Modifier.height(18.dp))
+
                 }
             }
         }
