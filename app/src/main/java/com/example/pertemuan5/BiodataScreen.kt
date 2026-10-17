@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringArrayResource
 
 @Composable
 fun BiodataScreen() {
@@ -20,4 +21,7 @@ fun BiodataScreen() {
     var webSkill by remember { mutableStateOf(false) }
     var expanded by remember { mutableStateOf(false) }
     var message by remember { mutableStateOf("") }
+
+    val experienceOptions =
+        stringArrayResource(R.array.experience_options)
 }
