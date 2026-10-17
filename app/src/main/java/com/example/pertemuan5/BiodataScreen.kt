@@ -279,6 +279,52 @@ fun BiodataScreen() {
                             onCheckedChange = { webSkill = it }
                         )
                     }
+
+                    Spacer(modifier = Modifier.height(18.dp))
+
+                    // Proceed button
+                    Button(
+                        onClick = {
+                            message = when {
+                                firstName.isBlank() ||
+                                        lastName.isBlank() ||
+                                        email.isBlank() ||
+                                        birthDate.isBlank() ||
+                                        experience.isBlank() -> {
+                                    context.getString(R.string.error_required)
+                                }
+
+                                !android.util.Patterns.EMAIL_ADDRESS
+                                    .matcher(email).matches() -> {
+                                    context.getString(R.string.error_email)
+                                }
+
+                                !androidSkill &&
+                                        !uiuxSkill &&
+                                        !webSkill -> {
+                                    context.getString(R.string.error_skill)
+                                }
+
+                                else -> {
+                                    context.getString(
+                                        R.string.success_message,
+                                        firstName,
+                                        lastName
+                                    )
+                                }
+                            }
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp),
+                        shape = RoundedCornerShape(12.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor =
+                                colorResource(R.color.purple_primary)
+                        )
+                    ) {
+                        Text(stringResource(R.string.proceed))
+                    }
                 }
             }
         }
