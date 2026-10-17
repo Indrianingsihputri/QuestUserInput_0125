@@ -112,6 +112,17 @@ fun BiodataScreen() {
                         singleLine = true,
                         shape = RoundedCornerShape(12.dp)
                     )
+
+                    OutlinedTextField(
+                        value = lastName,
+                        onValueChange = { lastName = it },
+                        modifier = Modifier.weight(1f),
+                        label = {
+                            Text(stringResource(R.string.last_name))
+                        },
+                        singleLine = true,
+                        shape = RoundedCornerShape(12.dp)
+                    )
                 }
 
             }
